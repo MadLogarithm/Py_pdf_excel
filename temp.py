@@ -93,7 +93,7 @@ def ectract_tables(filename):
                     i += k
                     break
         
-        writer = pd.ExcelWriter(str(filename)[:-4] + '.xlsx', engine= 'xlsxwriter')
+        writer = pd.ExcelWriter('./excel/' + str(filename)[6:-4] + '.xlsx', engine= 'xlsxwriter')
         for page_num, page in enumerate(text_all_table):
             for table_num, table in enumerate(page):
                 if table:
@@ -103,7 +103,7 @@ def ectract_tables(filename):
 
 if __name__ == '__main__':
 
-    path = "H:/py_pdf/*.pdf"
+    path = "./pdf/*.pdf"
     file_list = glob.glob(path)
     for filename in file_list:
         ectract_tables(filename)
