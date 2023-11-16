@@ -1,6 +1,8 @@
 from PyPDF2 import PdfFileReader, PdfFileWriter
 import glob
 
+# It has been proven that cropBox is changing the visible part of the PDF. The other parts are all there, but they just can't be seen.
+
 def cut_header_and_footer(filename):
     # how?
     input_pdf = PdfFileReader(open(filename,"rb"))
