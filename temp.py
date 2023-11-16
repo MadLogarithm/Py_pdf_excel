@@ -2,17 +2,6 @@ import pdfplumber
 import pandas as pd
 import glob
 
-# # 读取pdf文件，保存为pdf实例
-# pdf =  pdfplumber.open("./test.pdf") 
-
-# # 访问第二页
-# first_page = pdf.pages[9]
-
-# # 自动读取表格信息，返回列表
-# table = first_page.extract_table()
-
-# table
-
 # with pdfplumber.open('./test.pdf') as pdf:
 #     for page in pdf.pages:
 #         text = page.extract_text()
