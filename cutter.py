@@ -1,10 +1,20 @@
-import pdfplumber
-import pdfminer
-import pandas as pd
+from PyPDF2 import PdfFileReader, PdfFileWriter
 import glob
 
 def cut_header_and_footer(filename):
     # how?
+    input_pdf = PdfFileReader(open(filename,"rb"))
+    output_pdf = PdfFileWriter()
+
+    for page in input_pdf.pages:
+        page.cropBox.setLowerLeft((0, 73))
+        page.cropBox.setUpperRight((1000, 788))
+
+        output_pdf.addPage(page)
+    
+    output_pdf_stream = open('./cut_pdf/' + str(filename)[6:-4] + '.pdf', "wb")
+    output_pdf.write(output_pdf_stream)
+    output_pdf_stream.close()
 
 if __name__ == '__main__':
     

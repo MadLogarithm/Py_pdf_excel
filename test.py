@@ -14,7 +14,7 @@ def head_not_space_char(page_chars):
         i += 1
     return page_chars[i]
 
-with pdfplumber.open('gg.pdf') as pdf:
+with pdfplumber.open('./cut_pdf/gg.pdf') as pdf:
     for page in pdf.pages:
         print(page)
         print(head_not_space_char(page.chars).get('text'))
